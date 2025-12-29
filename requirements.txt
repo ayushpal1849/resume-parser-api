@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+python-multipart
+pydantic
+pytesseract
+opencv-python
+spacy
+scikit-learn
+pypdf
+pytest
+httpx
