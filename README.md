@@ -63,7 +63,7 @@ Before running the project, ensure you have the following installed:
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ayushpal1849/resume-parser-api.git
    cd resume-parser-api
    ```
 
