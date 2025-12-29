@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.95%2B-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
 
 A powerful, asynchronous REST API built with **FastAPI** that leverages **Optical Character Recognition (OCR)** and **Natural Language Processing (NLP)** to parse resumes, extract skills, and score candidates against job descriptions.
 
