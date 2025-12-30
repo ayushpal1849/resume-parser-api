@@ -6,8 +6,8 @@
 
 
 **AI Resume Parser API** is a powerful asynchronous REST API built with **FastAPI** that leverages **OCR (Tesseract)**, **NLP (spaCy)**, and scoring mechanisms to parse resume files (PDF/Image) and extract structured information like skills — even scoring candidates based on job descriptions.
-
 This project is designed for **HR Tech platforms, ATS systems, and AI-driven recruitment tools**.
+
 ---
 
 ## 📑 Table of Contents
@@ -19,6 +19,10 @@ This project is designed for **HR Tech platforms, ATS systems, and AI-driven rec
 - [Installation](#-installation)
 - [Running the Application](#-running-the-application)
 - [API Documentation](#-api-documentation)
+- [Example Requests](#-example-requests)
+- [Sample Response](#-sample-response)
+- [Use Cases](#-use-cases)
+- [Author](#-author)
 
 ---
 
