@@ -1,11 +1,13 @@
-# 📄 AI Resume Parser API
+# 📄 AI Resume Parser & Scoring API
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.95%2B-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+![Stars](https://img.shields.io/github/stars/ayushpal1849/resume-parser-api?style=social)
 
 
-A powerful, asynchronous REST API built with **FastAPI** that leverages **Optical Character Recognition (OCR)** and **Natural Language Processing (NLP)** to parse resumes, extract skills, and score candidates against job descriptions.
+**AI Resume Parser API** is a powerful asynchronous REST API built with **FastAPI** that leverages **OCR (Tesseract)**, **NLP (spaCy)**, and scoring mechanisms to parse resume files (PDF/Image) and extract structured information like skills — even scoring candidates based on job descriptions.
 
+This project is designed for **HR Tech platforms, ATS systems, and AI-driven recruitment tools**.
 ---
 
 ## 📑 Table of Contents
@@ -24,29 +26,50 @@ A powerful, asynchronous REST API built with **FastAPI** that leverages **Optica
 
 - **📄 Multi-Format Support**: Seamlessly extracts text from **PDF** resumes using `pypdf` and **Image**-based resumes (JPG, PNG) using **Tesseract OCR**.
 - **🧠 NLP Skill Extraction**: Utilizes **Spacy** to intelligently identify potential skills (Nouns/Proper Nouns) from the extracted text.
-- **📊 Resume Scoring**: Calculates a relevance score (0-100) by comparing extracted skills against a provided Job Description.
-- **⚡ High Performance**: Built on **FastAPI** for high-speed, asynchronous request processing.
+- **📊 Resume Scoring**: Calculates a relevance **score (0-100) against job descriptions** by comparing extracted skills against a provided Job Description.
+- **⚡ High Performance**: Built on **FastAPI** for high-speed, **asynchronous** request processing.
+- 📄 Auto-generated API documentation (Swagger / ReDoc).
 
-## 🛠️ Tech Stack
+---
+
+
+## 🧩 Tech Stack
 
 *   **Framework**: FastAPI, Uvicorn
 *   **OCR & Image Processing**: PyTesseract, OpenCV (`cv2`), pypdf
 *   **Natural Language Processing**: Spacy (`en_core_web_sm`)
 *   **Utilities**: Pydantic, Python-Multipart
 
+
+| Technology | Purpose |
+|-----------|---------|
+| Python | Core language |
+| FastAPI | REST API framework |
+| Uvicorn | ASGI server |
+| Tesseract OCR | Image text extraction |
+| spaCy | NLP processing |
+| Pydantic | Data validation |
+| OpenCV / PIL | Image processing |
+
+---
+
+
 ## 📂 Project Structure
 
-```text
+```bash
 resume-parser-api/
+│
 ├── app/
-│   ├── api/            # API Routes and Controllers
-│   ├── core/           # Core logic (OCR, NLP, Scoring algorithms)
-│   ├── services/       # Business logic orchestration
-│   ├── utils/          # File handling and helper utilities
-│   └── main.py         # Application entry point
-├── uploads/            # Temporary storage for uploaded files
-└── requirements.txt    # Project dependencies
-└── README.md           # Project documentation
+│   ├── api/              # API routes
+│   ├── core/             # Business logic
+│   ├── services/         # Resume parsing & scoring services
+│   ├── utils/            # OCR & helper utilities
+│   ├── models/           # Pydantic schemas
+│   └── main.py           # App entry point
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
 
 ## 📋 Prerequisites
@@ -108,3 +131,60 @@ Once the server is running, you can access the interactive API docs (Swagger UI)
 | `GET` | `/api/health` | Check API status |
 | `POST` | `/api/resume/parse` | Upload a resume (PDF/Image) to extract skills |
 | `POST` | `/api/resume/score` | Upload a resume and Job Description to get a match score |
+
+## 🧪 Example Requests
+
+### ▶️ Parse Resume
+
+```bash
+curl -X POST "http://localhost:8000/api/resume/parse" \
+-F "resume=@resume.pdf"
+```
+
+### ▶️ Score Resume Against Job Description
+
+```bash
+curl -X POST "http://localhost:8000/api/resume/score" \
+-F "resume=@resume.pdf" \
+-F "job_description=@jd.txt"
+```
+
+## 📤 Sample Response
+
+```json
+{
+  "candidate_name": "John Doe",
+  "skills": ["Python", "FastAPI", "Machine Learning"],
+  "experience_years": 2,
+  "resume_score": 82
+}
+```
+
+## 📌 Use Cases
+
+* Applicant Tracking Systems (ATS)
+
+* Resume screening automation
+
+* AI-driven recruitment platforms
+
+* HR analytics tools
+
+* Resume evaluation & ranking systems
+
+<!-- ## 🔒 Error Handling
+
+* Consistent JSON-based error responses
+
+* Validation via Pydantic schemas
+
+* Graceful handling of invalid file formats -->
+
+## 👤 Author
+
+**Ayush Pal**
+Python Developer | Backend & AI Engineer
+
+**🔗 GitHub:** https://github.com/ayushpal1849
+
+**🔗 LinkedIn:** https://www.linkedin.com/in/ayush-pal-ap223/
